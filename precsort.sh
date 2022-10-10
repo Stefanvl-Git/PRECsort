@@ -6,6 +6,12 @@
 # Usage: ./precsort.sh {path} {destination}
 # Example: ./precsort.sh /mnt/recovered/ /mnt/sorted
 
+
+#TODO:
+
+## VOEG PDF EN WORD META DATA SORT
+## LOADING BAR
+
 #set variables
 src=$1
 dst=$2
@@ -111,7 +117,7 @@ printf " ${green}Done!${normal}\n"
 
 # Here we can call for exiftool to check certain extension directories for exif data and rename/sort based on it
 # I've chosen to do this for jpg, mov, mp4 and psd files as I've had good success with that. You can add more extensions as you want by adding them to the for loop below (space separated).
-for extension in jpg mov mp4 psd; do
+for extension in jpg mov mp4 psd pdf docx doc; do
   if [[ -d "$dst"/"${extension}" ]]; then
     printf " > Renaming and sorting %s files based on exif timestamp... " "$extension"
     # If 'extension' was found, pass it on to 'exifrename'-function for rename and sort
